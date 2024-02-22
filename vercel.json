@@ -5,11 +5,6 @@
             "src": "./index.py",
             "use": "@vercel/python",
             "config":{"runtime":"python3.6"},
-            "build":{
-                "cmd":"pip install https://github.com/explosion/spacy-models/releases/download/en_core_web_sm-2.0.0/en_core_web_sm-2.0.0.tar.gz",
-                "env":{"CUSTOM_ENV_VAR":"value"},
-                "functions":{"api/*.py":"api"}
-            }
         }
     ],
     "routes": [
@@ -17,5 +12,10 @@
             "src":"/(.*)",
             "dest":"/"
         }
-    ]
+    ],
+    "build":{
+        "cmd":"pip install https://github.com/explosion/spacy-models/releases/download/en_core_web_sm-2.0.0/en_core_web_sm-2.0.0.tar.gz",
+        "env":{"CUSTOM_ENV_VAR":"value"},
+        "functions":{"api/*.py":"api"}
+    }
 }
