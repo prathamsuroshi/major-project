@@ -2,16 +2,25 @@
     "version":2,
     "builds": [
         {
+            "src": "package.json",
+            "use": "vercel-sapper"
+        },
+        {
             "src": "./index.py",
             "use": "@vercel/python",
-            "config":{"runtime":"python3.12.2"}
+            "config":{"runtime":"python3.10.2"}
         }
     ],
     "routes": [
         {
             "src":"/(.*)",
-            "dest":"/"
+            "dest":"/",
+            "headers": { 
+                "Access-Control-Allow-Origin": "*"
+            }
         }
     ]
 }
+
+
 
